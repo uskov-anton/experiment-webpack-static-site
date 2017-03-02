@@ -4,7 +4,9 @@
   "description": "The experiment of creating static pages using webpack",
   "scripts": {
     "build:fst": "cross-env VAR=fst webpack",
+    "build:sec": "cross-env VAR=sec webpack",
     "rebuild:fst": "npm run clean && npm run build:fst",
+    "rebuild:sec": "npm run clean && npm run build:sec",
     "clean": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +18,7 @@
     "webpack",
     "static-site",
     "extract-text-webpack-plugin",
+    "html-webpack-plugin",
     "static-site-generator-webpack-plugin"
   ],
   "author": "Uskov Anton <uskov.anton@gmail.com>",
@@ -30,6 +33,7 @@
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
+    "html-webpack-plugin": "^2.28.0",
     "pug": "^2.0.0-beta11",
     "pug-loader": "^2.3.0",
     "rimraf": "^2.5.4",

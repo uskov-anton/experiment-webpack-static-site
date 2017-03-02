@@ -1,6 +1,7 @@
 import path from 'path';
 import merge from 'webpack-merge';
 import StaticSiteGeneratorPlugin from 'static-site-generator-webpack-plugin';
+import HtmlPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const dist = path.join(__dirname, 'dist');
@@ -55,6 +56,25 @@ switch (process.env.VAR) {
         variation.plugins = [
             new StaticSiteGeneratorPlugin({
                 entry: 'pages'
+            }),
+        ];
+        break;
+    case 'sec' :
+        variation.entry = {
+            'main': './config/sec/main.js',
+            'second/second': './config/sec/second/second.js',
+        };
+        variation.output = {
+            libraryTarget: 'umd',
+        };
+        variation.plugins = [
+            new HtmlPlugin({
+                chunks: ['main'],
+                filename: 'main.html',
+            }),
+            new HtmlPlugin({
+                chunks: ['second'],
+                filename: 'second/second.html',
             }),
         ];
         break;
